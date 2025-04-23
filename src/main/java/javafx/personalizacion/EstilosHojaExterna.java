@@ -14,29 +14,25 @@ import javafx.scene.layout.HBox;
 public class EstilosHojaExterna extends Application {
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			BorderPane raiz = new BorderPane();
-			raiz.getStyleClass().add("raiz");
-			
-			HBox hbBotones = new HBox(10);
-			hbBotones.setPadding(new Insets(10));
-			hbBotones.setAlignment(Pos.CENTER_RIGHT);
-			Button btAceptar = new Button("Aceptar");
-			btAceptar.setId("btAceptar");
-			Button btCancelar = new Button("Cancelar");
-			btCancelar.setId("btCancelar");
-			hbBotones.getChildren().addAll(btAceptar, btCancelar);
-			
-			raiz.setBottom(hbBotones);			
-			
-			Scene escena = new Scene(raiz, 500, 500);
-			escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());
-			escenarioPrincipal.setTitle("Hoja Estilos Externa");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		BorderPane raiz = new BorderPane();
+		raiz.getStyleClass().add("raiz");
+
+		HBox hbBotones = new HBox(10);
+		hbBotones.setPadding(new Insets(10));
+		hbBotones.setAlignment(Pos.CENTER_RIGHT);
+		Button btAceptar = new Button("Aceptar");
+		btAceptar.setId("btAceptar");
+		Button btCancelar = new Button("Cancelar");
+		btCancelar.setId("btCancelar");
+		hbBotones.getChildren().addAll(btAceptar, btCancelar);
+
+		raiz.setBottom(hbBotones);
+
+		Scene escena = new Scene(raiz, 500, 500);
+		escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());
+		escenarioPrincipal.setTitle("Hoja Estilos Externa");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 	
 	public static void main(String[] args) {
