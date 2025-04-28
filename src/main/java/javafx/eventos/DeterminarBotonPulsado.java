@@ -43,45 +43,41 @@ public class DeterminarBotonPulsado extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox(20);
-			raiz.setPadding(new Insets(10));
-			raiz.setAlignment(Pos.CENTER);
-			
-			HBox hbBotones =new HBox(30);
-			hbBotones.setPadding(new Insets(10));
-			hbBotones.setAlignment(Pos.CENTER);
-			
-			Font tipoLetra = Font.font("Arial", 16);
-			boton1 = new Button("Botón 1");
-			boton1.setFont(tipoLetra);
-			boton1.setOnAction(this::botonPulsado);
-			boton1.setOnMouseEntered(this::ponerSombra);
-			boton1.setOnMouseExited(this::quitarSombra);
-			boton2 = new Button("Botón 2");
-			boton2.setFont(tipoLetra);
-			boton2.setOnAction(this::botonPulsado);
-			boton2.setOnMouseEntered(this::ponerSombra);
-			boton2.setOnMouseExited(this::quitarSombra);
-			boton3 = new Button("Botón 3");
-			boton3.setFont(tipoLetra);
-			boton3.setOnAction(this::botonPulsado);
-			boton3.setOnMouseEntered(this::ponerSombra);
-			boton3.setOnMouseExited(this::quitarSombra);
-			hbBotones.getChildren().addAll(boton1, boton2, boton3);
-			
-			etiqueta = new Label();
-			etiqueta.setFont(Font.font("Arial", 24));
-			
-			raiz.getChildren().addAll(hbBotones, etiqueta);
-			
-			Scene escena = new Scene(raiz, 450, 150);
-			escenarioPrincipal.setTitle("¿Qué botón se ha pulsado?");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox(20);
+		raiz.setPadding(new Insets(10));
+		raiz.setAlignment(Pos.CENTER);
+
+		HBox hbBotones =new HBox(30);
+		hbBotones.setPadding(new Insets(10));
+		hbBotones.setAlignment(Pos.CENTER);
+
+		Font tipoLetra = Font.font("Arial", 16);
+		boton1 = new Button("Botón 1");
+		boton1.setFont(tipoLetra);
+		boton1.setOnAction(this::botonPulsado);
+		boton1.setOnMouseEntered(this::ponerSombra);
+		boton1.setOnMouseExited(this::quitarSombra);
+		boton2 = new Button("Botón 2");
+		boton2.setFont(tipoLetra);
+		boton2.setOnAction(this::botonPulsado);
+		boton2.setOnMouseEntered(this::ponerSombra);
+		boton2.setOnMouseExited(this::quitarSombra);
+		boton3 = new Button("Botón 3");
+		boton3.setFont(tipoLetra);
+		boton3.setOnAction(this::botonPulsado);
+		boton3.setOnMouseEntered(this::ponerSombra);
+		boton3.setOnMouseExited(this::quitarSombra);
+		hbBotones.getChildren().addAll(boton1, boton2, boton3);
+
+		etiqueta = new Label();
+		etiqueta.setFont(Font.font("Arial", 24));
+
+		raiz.getChildren().addAll(hbBotones, etiqueta);
+
+		Scene escena = new Scene(raiz, 450, 150);
+		escenarioPrincipal.setTitle("¿Qué botón se ha pulsado?");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

@@ -14,26 +14,22 @@ public class SelectorFecha extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			HBox raiz = new HBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			raiz.setAlignment(Pos.CENTER_LEFT);
-			
-			Label lbFechaNacimiento = new Label("Fecha de nacimiento:");
-			lbFechaNacimiento.setFont(Font.font(15));
-			
-			DatePicker dpFechaNacimiento = new DatePicker();
-						
-			raiz.getChildren().addAll(lbFechaNacimiento, dpFechaNacimiento);
-			
-			Scene escena = new Scene(raiz, 450, 120);
-			escenarioPrincipal.setTitle("Selector de fecha");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		HBox raiz = new HBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
+		raiz.setAlignment(Pos.CENTER_LEFT);
+
+		Label lbFechaNacimiento = new Label("Fecha de nacimiento:");
+		lbFechaNacimiento.setFont(Font.font(15));
+
+		DatePicker dpFechaNacimiento = new DatePicker();
+
+		raiz.getChildren().addAll(lbFechaNacimiento, dpFechaNacimiento);
+
+		Scene escena = new Scene(raiz, 450, 120);
+		escenarioPrincipal.setTitle("Selector de fecha");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

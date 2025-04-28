@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 public class ListaColores3 extends Application {
 	
-	private class CeldaColor extends ListCell<String> {
+	private static class CeldaColor extends ListCell<String> {
         @Override
         public void updateItem(String color, boolean vacio) {
             super.updateItem(color, vacio);
@@ -87,7 +87,7 @@ public class ListaColores3 extends Application {
 			lvColores = new ListView<>(COLORES);
 			lvColores.setPrefWidth(80);
 			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> mostrarColor(nuevo));
+			lvColores.getSelectionModel().selectedItemProperty().addListener((ob, viejo, nuevo) -> mostrarColor(nuevo));
 			lvColores.setCellFactory(l -> new CeldaColor());
 			
 			HBox hbAnadir = new HBox(10);

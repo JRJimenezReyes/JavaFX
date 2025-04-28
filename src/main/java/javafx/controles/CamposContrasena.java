@@ -13,25 +13,21 @@ public class CamposContrasena extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			HBox raiz = new HBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			raiz.setAlignment(Pos.CENTER_LEFT);
-			
-			Label lbContrasena = new Label("Contraseña:");
-			
-			PasswordField pfContrasena = new PasswordField();
-			
-			raiz.getChildren().addAll(lbContrasena, pfContrasena);
-			
-			Scene escena = new Scene(raiz, 350, 100);
-			escenarioPrincipal.setTitle("Campos de contraseña");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		HBox raiz = new HBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
+		raiz.setAlignment(Pos.CENTER_LEFT);
+
+		Label lbContrasena = new Label("Contraseña:");
+
+		PasswordField pfContrasena = new PasswordField();
+
+		raiz.getChildren().addAll(lbContrasena, pfContrasena);
+
+		Scene escena = new Scene(raiz, 350, 100);
+		escenarioPrincipal.setTitle("Campos de contraseña");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

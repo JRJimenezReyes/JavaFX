@@ -19,39 +19,35 @@ public class PanelApilado extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setAlignment(Pos.CENTER);
-			
-			StackPane spEmoji = new StackPane();
-			Rectangle rectangulo = new Rectangle(100, 100);
-			rectangulo.setFill(Color.web("#dc143c"));
-			rectangulo.setStroke(Color.web("#b6e7c9"));
-			rectangulo.setStrokeWidth(10);
-			rectangulo.setArcHeight(40);
-			rectangulo.setArcWidth(40);
-			Label lbEmoji = new Label(";)");
-			lbEmoji.setFont(new Font(60));
-			spEmoji.getChildren().addAll(rectangulo, lbEmoji);
-			InnerShadow is = new InnerShadow(10, Color.BLUE);
-			DropShadow ds = new DropShadow(40, Color.DARKVIOLET);
-			Light.Distant distancia = new Light.Distant();
-			distancia.setColor(Color.LIGHTGRAY);
-			distancia.setElevation(80);
-			Lighting l = new Lighting(distancia);
-			is.setInput(l);
-			ds.setInput(is);
-			spEmoji.setEffect(ds);
-			
-			raiz.getChildren().addAll(spEmoji);
-			
-			Scene escena = new Scene(raiz, 250, 250);
-			escenarioPrincipal.setTitle("Panel apilado");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox();
+		raiz.setAlignment(Pos.CENTER);
+
+		StackPane spEmoji = new StackPane();
+		Rectangle rectangulo = new Rectangle(100, 100);
+		rectangulo.setFill(Color.web("#dc143c"));
+		rectangulo.setStroke(Color.web("#b6e7c9"));
+		rectangulo.setStrokeWidth(10);
+		rectangulo.setArcHeight(40);
+		rectangulo.setArcWidth(40);
+		Label lbEmoji = new Label(";)");
+		lbEmoji.setFont(new Font(60));
+		spEmoji.getChildren().addAll(rectangulo, lbEmoji);
+		InnerShadow is = new InnerShadow(10, Color.BLUE);
+		DropShadow ds = new DropShadow(40, Color.DARKVIOLET);
+		Light.Distant distancia = new Light.Distant();
+		distancia.setColor(Color.LIGHTGRAY);
+		distancia.setElevation(80);
+		Lighting l = new Lighting(distancia);
+		is.setInput(l);
+		ds.setInput(is);
+		spEmoji.setEffect(ds);
+
+		raiz.getChildren().addAll(spEmoji);
+
+		Scene escena = new Scene(raiz, 250, 250);
+		escenarioPrincipal.setTitle("Panel apilado");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

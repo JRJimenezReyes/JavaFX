@@ -51,34 +51,30 @@ public class VistaTabla extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			
-			Label lbPersonajes = new Label("Personajes:");
-			TableView<Personaje> tvPersonajes = new TableView<>();
-			TableColumn<Personaje, String> columnaNombre = new TableColumn<>("Nombre");
-			TableColumn<Personaje, String> columnaApellidos = new TableColumn<>("Apellidos");
-			tvPersonajes.getColumns().add(columnaNombre);
-			tvPersonajes.getColumns().add(columnaApellidos);
-			tvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-			columnaNombre.setMinWidth(100);
-			columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-			columnaApellidos.setMinWidth(100);
-			columnaApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+		VBox raiz = new VBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
 
-			tvPersonajes.setItems(PERSONAJES);
-			
-			raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
-			
-			Scene escena = new Scene(raiz, 300, 250);
-			escenarioPrincipal.setTitle("Vista de tabla");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		Label lbPersonajes = new Label("Personajes:");
+		TableView<Personaje> tvPersonajes = new TableView<>();
+		TableColumn<Personaje, String> columnaNombre = new TableColumn<>("Nombre");
+		TableColumn<Personaje, String> columnaApellidos = new TableColumn<>("Apellidos");
+		tvPersonajes.getColumns().add(columnaNombre);
+		tvPersonajes.getColumns().add(columnaApellidos);
+		tvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		columnaNombre.setMinWidth(100);
+		columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		columnaApellidos.setMinWidth(100);
+		columnaApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+
+		tvPersonajes.setItems(PERSONAJES);
+
+		raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
+
+		Scene escena = new Scene(raiz, 300, 250);
+		escenarioPrincipal.setTitle("Vista de tabla");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

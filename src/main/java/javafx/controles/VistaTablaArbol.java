@@ -55,56 +55,52 @@ public class VistaTablaArbol extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			
-			Label lbPersonajes = new Label("Personajes:");
-			
-			//Creo los diferentes elementos del árbol
-			TreeItem<Personaje> tiRaiz = new TreeItem<>(new Personaje("Personajes", ""));
-			TreeItem<Personaje> tiMasculinos = new TreeItem<>(new Personaje("Masculinos", ""));
-			for (Personaje masculino : MASCULINOS) {
-				tiMasculinos.getChildren().add(new TreeItem<>(masculino));
-			}
-			TreeItem<Personaje> tiFemeninos = new TreeItem<>(new Personaje("Femeninos", ""));
-			for (Personaje femenino : FEMENINOS) {
-				tiFemeninos.getChildren().add(new TreeItem<>(femenino));
-			}
-	        tiRaiz.getChildren().add(tiMasculinos);
-	        tiRaiz.getChildren().add(tiFemeninos);
-			tiRaiz.setExpanded(true);
-			tiMasculinos.setExpanded(true);
-			tiFemeninos.setExpanded(true);
+		VBox raiz = new VBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
 
-			//Creo las columnas y defino los contenidos de las celdas
-			TreeTableColumn<Personaje, String> columnaNombre = new TreeTableColumn<>("Nombre");
-			columnaNombre.setMinWidth(120);
-			columnaNombre.setCellValueFactory((
-					TreeTableColumn.CellDataFeatures<Personaje, String> parametro) -> 
-            		new ReadOnlyStringWrapper(parametro.getValue().getValue().getNombre()));
-			TreeTableColumn<Personaje, String> columnaApellidos = new TreeTableColumn<>("Apellidos");
-			columnaApellidos.setMinWidth(150);
-			columnaApellidos.setCellValueFactory((
-					TreeTableColumn.CellDataFeatures<Personaje, String> parametro) -> 
-    				new ReadOnlyStringWrapper(parametro.getValue().getValue().getApellidos()));
+		Label lbPersonajes = new Label("Personajes:");
 
-			//Creo la vista de tabla en árbol y le añado las columnas
-			TreeTableView<Personaje> ttvPersonajes = new TreeTableView<>(tiRaiz);
-			ttvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-			ttvPersonajes.getColumns().add(columnaNombre);
-			ttvPersonajes.getColumns().add(columnaApellidos);
-			
-			raiz.getChildren().addAll(lbPersonajes, ttvPersonajes);
-			
-			Scene escena = new Scene(raiz, 320, 350);
-			escenarioPrincipal.setTitle("Vista de tabla en árbol");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
+		//Creo los diferentes elementos del árbol
+		TreeItem<Personaje> tiRaiz = new TreeItem<>(new Personaje("Personajes", ""));
+		TreeItem<Personaje> tiMasculinos = new TreeItem<>(new Personaje("Masculinos", ""));
+		for (Personaje masculino : MASCULINOS) {
+			tiMasculinos.getChildren().add(new TreeItem<>(masculino));
 		}
+		TreeItem<Personaje> tiFemeninos = new TreeItem<>(new Personaje("Femeninos", ""));
+		for (Personaje femenino : FEMENINOS) {
+			tiFemeninos.getChildren().add(new TreeItem<>(femenino));
+		}
+		tiRaiz.getChildren().add(tiMasculinos);
+		tiRaiz.getChildren().add(tiFemeninos);
+		tiRaiz.setExpanded(true);
+		tiMasculinos.setExpanded(true);
+		tiFemeninos.setExpanded(true);
+
+		//Creo las columnas y defino los contenidos de las celdas
+		TreeTableColumn<Personaje, String> columnaNombre = new TreeTableColumn<>("Nombre");
+		columnaNombre.setMinWidth(120);
+		columnaNombre.setCellValueFactory((
+				TreeTableColumn.CellDataFeatures<Personaje, String> parametro) ->
+				new ReadOnlyStringWrapper(parametro.getValue().getValue().getNombre()));
+		TreeTableColumn<Personaje, String> columnaApellidos = new TreeTableColumn<>("Apellidos");
+		columnaApellidos.setMinWidth(150);
+		columnaApellidos.setCellValueFactory((
+				TreeTableColumn.CellDataFeatures<Personaje, String> parametro) ->
+				new ReadOnlyStringWrapper(parametro.getValue().getValue().getApellidos()));
+
+		//Creo la vista de tabla en árbol y le añado las columnas
+		TreeTableView<Personaje> ttvPersonajes = new TreeTableView<>(tiRaiz);
+		ttvPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		ttvPersonajes.getColumns().add(columnaNombre);
+		ttvPersonajes.getColumns().add(columnaApellidos);
+
+		raiz.getChildren().addAll(lbPersonajes, ttvPersonajes);
+
+		Scene escena = new Scene(raiz, 320, 350);
+		escenarioPrincipal.setTitle("Vista de tabla en árbol");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

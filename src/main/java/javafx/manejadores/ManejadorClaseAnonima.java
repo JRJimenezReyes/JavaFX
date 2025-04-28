@@ -13,29 +13,25 @@ public class ManejadorClaseAnonima extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			HBox raiz = new HBox();
-			raiz.setAlignment(Pos.CENTER);
-			
-			Button btEjemplo = new Button("Púlsame!!!!");
-			btEjemplo.setOnAction(new EventHandler<ActionEvent>() {
+		HBox raiz = new HBox();
+		raiz.setAlignment(Pos.CENTER);
 
-				@Override
-				public void handle(ActionEvent event) {
-					System.out.println("Botón pulsado!!!");					
-				}
+		Button btEjemplo = new Button("Púlsame!!!!");
+		btEjemplo.setOnAction(new EventHandler<ActionEvent>() {
 
-			});
-			
-			raiz.getChildren().add(btEjemplo);
-			
-			Scene escena = new Scene(raiz, 350, 100);
-			escenarioPrincipal.setTitle("Manejador Clase Anónima");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Botón pulsado!!!");
+			}
+
+		});
+
+		raiz.getChildren().add(btEjemplo);
+
+		Scene escena = new Scene(raiz, 350, 100);
+		escenarioPrincipal.setTitle("Manejador Clase Anónima");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

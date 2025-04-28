@@ -4,7 +4,6 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.eventos.clases.Personaje;
@@ -265,63 +264,59 @@ public class Dialogos extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox(20);
-			raiz.setPadding(new Insets(20));
-			raiz.setAlignment(Pos.CENTER);
-			
-			VBox vbOpciones =new VBox(10);
-			vbOpciones.setPadding(new Insets(10));
-			
-			Label lbElige = new Label("Elige el tipo de diálogo a mostrar:");
-			lbElige.setFont(Font.font(20));
-			rbInformacion = new RadioButton("Información");
-			rbInformacion.setSelected(true);
-			rbInformacionSinCabecera = new RadioButton("Información sin cabecera");
-			rbAdvertencia = new RadioButton("Advertencia");
-			rbError = new RadioButton("Error");
-			rbConfirmacion = new RadioButton("Confirmación");
-			rbConfirmacionPersonalizado = new RadioButton("Confirmación personalizado");
-			rbEntradaTexto = new RadioButton("Entrada Texto");
-			rbEleccion = new RadioButton("Elección");
-			rbPersonalizado = new RadioButton("Personalizado");
-			Insets margen = new Insets(0, 0, 0, 20);
-			VBox.setMargin(rbInformacion, margen);
-			VBox.setMargin(rbInformacionSinCabecera, margen);
-			VBox.setMargin(rbAdvertencia, margen);
-			VBox.setMargin(rbError, margen);
-			VBox.setMargin(rbConfirmacion, margen);
-			VBox.setMargin(rbConfirmacionPersonalizado, margen);
-			VBox.setMargin(rbEntradaTexto, margen);
-			VBox.setMargin(rbEleccion, margen);
-			VBox.setMargin(rbPersonalizado, margen);
-			grupo = new ToggleGroup();
-			rbInformacion.setToggleGroup(grupo);
-			rbInformacionSinCabecera.setToggleGroup(grupo);
-			rbAdvertencia.setToggleGroup(grupo);
-			rbError.setToggleGroup(grupo);
-			rbConfirmacion.setToggleGroup(grupo);
-			rbConfirmacionPersonalizado.setToggleGroup(grupo);
-			rbEntradaTexto.setToggleGroup(grupo);
-			rbEleccion.setToggleGroup(grupo);
-			rbPersonalizado.setToggleGroup(grupo);
-			vbOpciones.getChildren().addAll(lbElige, rbInformacion, rbInformacionSinCabecera, rbAdvertencia, 
-					rbError, rbConfirmacion, rbConfirmacionPersonalizado, rbEntradaTexto, rbEleccion, rbPersonalizado);
-			
-			Button btMostrar = new Button("Mostrar diálogo");
-			btMostrar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-			btMostrar.setOnAction(e -> mostrarDialogo());
-			
-			raiz.getChildren().addAll(vbOpciones, btMostrar);
-			
-			Scene escena = new Scene(raiz, 400, 400);
-			escenarioPrincipal.setOnCloseRequest(e -> mostrarDialogoSalir(escenarioPrincipal, e));
-			escenarioPrincipal.setTitle("Mostrar diálogo");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox(20);
+		raiz.setPadding(new Insets(20));
+		raiz.setAlignment(Pos.CENTER);
+
+		VBox vbOpciones =new VBox(10);
+		vbOpciones.setPadding(new Insets(10));
+
+		Label lbElige = new Label("Elige el tipo de diálogo a mostrar:");
+		lbElige.setFont(Font.font(20));
+		rbInformacion = new RadioButton("Información");
+		rbInformacion.setSelected(true);
+		rbInformacionSinCabecera = new RadioButton("Información sin cabecera");
+		rbAdvertencia = new RadioButton("Advertencia");
+		rbError = new RadioButton("Error");
+		rbConfirmacion = new RadioButton("Confirmación");
+		rbConfirmacionPersonalizado = new RadioButton("Confirmación personalizado");
+		rbEntradaTexto = new RadioButton("Entrada Texto");
+		rbEleccion = new RadioButton("Elección");
+		rbPersonalizado = new RadioButton("Personalizado");
+		Insets margen = new Insets(0, 0, 0, 20);
+		VBox.setMargin(rbInformacion, margen);
+		VBox.setMargin(rbInformacionSinCabecera, margen);
+		VBox.setMargin(rbAdvertencia, margen);
+		VBox.setMargin(rbError, margen);
+		VBox.setMargin(rbConfirmacion, margen);
+		VBox.setMargin(rbConfirmacionPersonalizado, margen);
+		VBox.setMargin(rbEntradaTexto, margen);
+		VBox.setMargin(rbEleccion, margen);
+		VBox.setMargin(rbPersonalizado, margen);
+		grupo = new ToggleGroup();
+		rbInformacion.setToggleGroup(grupo);
+		rbInformacionSinCabecera.setToggleGroup(grupo);
+		rbAdvertencia.setToggleGroup(grupo);
+		rbError.setToggleGroup(grupo);
+		rbConfirmacion.setToggleGroup(grupo);
+		rbConfirmacionPersonalizado.setToggleGroup(grupo);
+		rbEntradaTexto.setToggleGroup(grupo);
+		rbEleccion.setToggleGroup(grupo);
+		rbPersonalizado.setToggleGroup(grupo);
+		vbOpciones.getChildren().addAll(lbElige, rbInformacion, rbInformacionSinCabecera, rbAdvertencia,
+				rbError, rbConfirmacion, rbConfirmacionPersonalizado, rbEntradaTexto, rbEleccion, rbPersonalizado);
+
+		Button btMostrar = new Button("Mostrar diálogo");
+		btMostrar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		btMostrar.setOnAction(e -> mostrarDialogo());
+
+		raiz.getChildren().addAll(vbOpciones, btMostrar);
+
+		Scene escena = new Scene(raiz, 400, 400);
+		escenarioPrincipal.setOnCloseRequest(e -> mostrarDialogoSalir(escenarioPrincipal, e));
+		escenarioPrincipal.setTitle("Mostrar diálogo");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.recursos.LocalizadorRecursos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +23,7 @@ public class ControladorVentanaPrincipal {
 	private void crearVentana1() throws IOException {
 		if (escenarioVentana1 == null) {
 			escenarioVentana1 = new Stage();
-			FXMLLoader cargadorVentana1 = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/Ventana1.fxml"));
+			FXMLLoader cargadorVentana1 = new FXMLLoader(getClass().getResource("/vistas/Ventana1.fxml"));
 			VBox raizVentana1 = cargadorVentana1.load();
 			ControladorVentana1 controladorVentana1 = cargadorVentana1.getController();
 			controladorVentana1.setLBMensajes(lbMensajes);
@@ -38,7 +37,7 @@ public class ControladorVentanaPrincipal {
 	private void crearVentana2() throws IOException {
 		if (escenarioVentana2 == null) {
 			escenarioVentana2 = new Stage();		
-			FXMLLoader cargadorVentana2 = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/Ventana2.fxml"));
+			FXMLLoader cargadorVentana2 = new FXMLLoader(getClass().getResource("/vistas/Ventana2.fxml"));
 			VBox raizVentana2 = cargadorVentana2.load();
 			ControladorVentana2 controladorVentana2 = cargadorVentana2.getController();
 			controladorVentana2.setLBMensajes(lbMensajes);	

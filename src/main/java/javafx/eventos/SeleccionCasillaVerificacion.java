@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.recursos.LocalizadorRecursos;
+
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -24,9 +24,9 @@ public class SeleccionCasillaVerificacion extends Application {
 	private ImageView ivCaca;
 	private ImageView ivApagar;
 	
-	private static final Image CERVEZA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCerveza.png"), 100, 100, true, true);
-	private static final Image CACA = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoCaca.png"), 100, 100, true, true);
-	private static final Image APAGAR = new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/iconoApagar.png"), 100, 100, true, true);
+	private static final Image CERVEZA = new Image(SeleccionCasillaVerificacion.class.getResourceAsStream("/imagenes/iconoCerveza.png"), 100, 100, true, true);
+	private static Image CACA = new Image(SeleccionCasillaVerificacion.class.getResourceAsStream("/imagenes/iconoCaca.png"), 100, 100, true, true);
+	private static Image APAGAR = new Image(SeleccionCasillaVerificacion.class.getResourceAsStream("/imagenes/iconoApagar.png"), 100, 100, true, true);
 	
 	private void mostrarIconos(ActionEvent e) {
 		CheckBox pulsado = (CheckBox)e.getSource();

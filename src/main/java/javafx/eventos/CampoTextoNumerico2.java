@@ -27,34 +27,30 @@ public class CampoTextoNumerico2 extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox(20);
-			raiz.setPadding(new Insets(10));
-			raiz.setAlignment(Pos.CENTER);
-			
-			HBox hbTexto =new HBox(30);
-			hbTexto.setPadding(new Insets(10));
-			hbTexto.setAlignment(Pos.CENTER);
-			
-			Label lbTexto = new Label("Introduce un número\n(entero o decimal)");
-			lbTexto.setWrapText(true);
-			lbTexto.setFont(Font.font("Arial", 14));
-			tfNumerico = new TextField();
-			tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero(newValue));
-			hbTexto.getChildren().addAll(lbTexto, tfNumerico);
-			
-			lbInfo = new Label("Longitud: 0 caracteres");
-			lbInfo.setFont(Font.font("Arial", 24));
-			
-			raiz.getChildren().addAll(hbTexto, lbInfo);
-			
-			Scene escena = new Scene(raiz, 450, 150);
-			escenarioPrincipal.setTitle("Campo numérico");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox(20);
+		raiz.setPadding(new Insets(10));
+		raiz.setAlignment(Pos.CENTER);
+
+		HBox hbTexto =new HBox(30);
+		hbTexto.setPadding(new Insets(10));
+		hbTexto.setAlignment(Pos.CENTER);
+
+		Label lbTexto = new Label("Introduce un número\n(entero o decimal)");
+		lbTexto.setWrapText(true);
+		lbTexto.setFont(Font.font("Arial", 14));
+		tfNumerico = new TextField();
+		tfNumerico.textProperty().addListener((observable, oldValue, newValue) -> compruebaNumero(newValue));
+		hbTexto.getChildren().addAll(lbTexto, tfNumerico);
+
+		lbInfo = new Label("Longitud: 0 caracteres");
+		lbInfo.setFont(Font.font("Arial", 24));
+
+		raiz.getChildren().addAll(hbTexto, lbInfo);
+
+		Scene escena = new Scene(raiz, 450, 150);
+		escenarioPrincipal.setTitle("Campo numérico");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

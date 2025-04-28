@@ -47,59 +47,55 @@ public class TablaPersonajesPersonalizada extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			raiz.setAlignment(Pos.CENTER);
-			
-			Label lbPersonajes = new Label("Personajes");
-			lbPersonajes.setFont(Font.font(20));
-			TableView<Personaje> tvPersonajes = new TableView<>(PERSONAJES);
-			
-			TableColumn<Personaje, String> cNombre = new TableColumn<>("Nombre");
-			TableColumn<Personaje, Integer> cPoder = new TableColumn<>("Poder");
-			TableColumn<Personaje, Boolean> cSuperpoder = new TableColumn<>("Super Poder");
-			TableColumn<Personaje, Estrategia> cEstrategia = new TableColumn<>("Estrategia");
-			
-			tvPersonajes.getColumns().add(cNombre);
-			tvPersonajes.getColumns().add(cPoder);
-			tvPersonajes.getColumns().add(cSuperpoder);
-			tvPersonajes.getColumns().add(cEstrategia);
-			tvPersonajes.setEditable(true);
-			
-			cNombre.setMinWidth(100);
-			cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-			cNombre.setCellFactory(TextFieldTableCell.forTableColumn());
-			cNombre.setOnEditCommit(e -> System.out.println(e.getNewValue()));
-			cPoder.setMinWidth(20);
-			cPoder.setCellValueFactory(new PropertyValueFactory<>("poder"));
-			cPoder.setCellFactory(fila -> new TextFieldTableCell<>(new ConversorEnteroCadena()));
-			cPoder.setOnEditCommit(e -> System.out.println(e.getNewValue()));
-			cSuperpoder.setMinWidth(40);
-			cSuperpoder.setCellValueFactory(fila -> {
-				BooleanProperty superpoderProperty = new SimpleBooleanProperty(fila.getValue().isSuperpoder());
-				superpoderProperty.addListener((observable, oldValue, newValue) -> {
-					fila.getValue().setSuperpoder(newValue);
-					System.out.println(newValue);
-				});
-				return superpoderProperty;
+		VBox raiz = new VBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
+		raiz.setAlignment(Pos.CENTER);
+
+		Label lbPersonajes = new Label("Personajes");
+		lbPersonajes.setFont(Font.font(20));
+		TableView<Personaje> tvPersonajes = new TableView<>(PERSONAJES);
+
+		TableColumn<Personaje, String> cNombre = new TableColumn<>("Nombre");
+		TableColumn<Personaje, Integer> cPoder = new TableColumn<>("Poder");
+		TableColumn<Personaje, Boolean> cSuperpoder = new TableColumn<>("Super Poder");
+		TableColumn<Personaje, Estrategia> cEstrategia = new TableColumn<>("Estrategia");
+
+		tvPersonajes.getColumns().add(cNombre);
+		tvPersonajes.getColumns().add(cPoder);
+		tvPersonajes.getColumns().add(cSuperpoder);
+		tvPersonajes.getColumns().add(cEstrategia);
+		tvPersonajes.setEditable(true);
+
+		cNombre.setMinWidth(100);
+		cNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		cNombre.setCellFactory(TextFieldTableCell.forTableColumn());
+		cNombre.setOnEditCommit(e -> System.out.println(e.getNewValue()));
+		cPoder.setMinWidth(20);
+		cPoder.setCellValueFactory(new PropertyValueFactory<>("poder"));
+		cPoder.setCellFactory(fila -> new TextFieldTableCell<>(new ConversorEnteroCadena()));
+		cPoder.setOnEditCommit(e -> System.out.println(e.getNewValue()));
+		cSuperpoder.setMinWidth(40);
+		cSuperpoder.setCellValueFactory(fila -> {
+			BooleanProperty superpoderProperty = new SimpleBooleanProperty(fila.getValue().isSuperpoder());
+			superpoderProperty.addListener((observable, oldValue, newValue) -> {
+				fila.getValue().setSuperpoder(newValue);
+				System.out.println(newValue);
 			});
-			cSuperpoder.setCellFactory(fila -> new CheckBoxTableCell<>());
-			cEstrategia.setMinWidth(60);
-			cEstrategia.setCellValueFactory(new PropertyValueFactory<>("estrategia"));
-			cEstrategia.setCellFactory(fila -> new ChoiceBoxTableCell<Personaje, Estrategia>(Estrategia.values()));
-			cEstrategia.setOnEditCommit(e -> System.out.println(e.getNewValue()));
-			
-			raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
-			
-			Scene escena = new Scene(raiz, 455, 250);
-			escenarioPrincipal.setTitle("Tabla personajes");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+			return superpoderProperty;
+		});
+		cSuperpoder.setCellFactory(fila -> new CheckBoxTableCell<>());
+		cEstrategia.setMinWidth(60);
+		cEstrategia.setCellValueFactory(new PropertyValueFactory<>("estrategia"));
+		cEstrategia.setCellFactory(fila -> new ChoiceBoxTableCell<Personaje, Estrategia>(Estrategia.values()));
+		cEstrategia.setOnEditCommit(e -> System.out.println(e.getNewValue()));
+
+		raiz.getChildren().addAll(lbPersonajes, tvPersonajes);
+
+		Scene escena = new Scene(raiz, 455, 250);
+		escenarioPrincipal.setTitle("Tabla personajes");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

@@ -11,22 +11,18 @@ public class EditorHTML extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			
-			HTMLEditor editor = new HTMLEditor();
-			
-			raiz.getChildren().addAll(editor);
-			
-			Scene escena = new Scene(raiz, 750, 400);
-			escenarioPrincipal.setTitle("Editor HTML");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
+
+		HTMLEditor editor = new HTMLEditor();
+
+		raiz.getChildren().addAll(editor);
+
+		Scene escena = new Scene(raiz, 750, 400);
+		escenarioPrincipal.setTitle("Editor HTML");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

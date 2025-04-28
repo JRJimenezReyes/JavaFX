@@ -49,37 +49,33 @@ public class ListaColores2 extends Application {
 	
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			HBox raiz = new HBox(20);
-			raiz.setPadding(new Insets(30));
-			raiz.setAlignment(Pos.BOTTOM_CENTER);
-			
-			VBox hbOpciones =new VBox(20);
-			raiz.setAlignment(Pos.CENTER);
-			
-			Label lbElige = new Label("Elige el color");
-			lbElige.setFont(Font.font(20));
-			ListView<String> lvColores = new ListView<>(COLORES);
-			lvColores.setPrefWidth(80);
-			lvColores.getSelectionModel().select("Red");
-			lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> mostrarColor(nuevo));
-			lvColores.setCellFactory(l -> new CeldaColor());
-			hbOpciones.getChildren().addAll(lbElige, lvColores);
-			
-			panel = new Pane();
-			panel.setMinSize(140, 140);
-			panel.setMaxSize(140, 140);
-			panel.setStyle(ESTILO_PANEL + "-fx-background-color: Red;");
-			
-			raiz.getChildren().addAll(hbOpciones, panel);
-			
-			Scene escena = new Scene(raiz, 430, 200);
-			escenarioPrincipal.setTitle("Elige un color");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		HBox raiz = new HBox(20);
+		raiz.setPadding(new Insets(30));
+		raiz.setAlignment(Pos.BOTTOM_CENTER);
+
+		VBox hbOpciones =new VBox(20);
+		raiz.setAlignment(Pos.CENTER);
+
+		Label lbElige = new Label("Elige el color");
+		lbElige.setFont(Font.font(20));
+		ListView<String> lvColores = new ListView<>(COLORES);
+		lvColores.setPrefWidth(80);
+		lvColores.getSelectionModel().select("Red");
+		lvColores.getSelectionModel().selectedItemProperty().addListener((ov, viejo, nuevo) -> mostrarColor(nuevo));
+		lvColores.setCellFactory(l -> new CeldaColor());
+		hbOpciones.getChildren().addAll(lbElige, lvColores);
+
+		panel = new Pane();
+		panel.setMinSize(140, 140);
+		panel.setMaxSize(140, 140);
+		panel.setStyle(ESTILO_PANEL + "-fx-background-color: Red;");
+
+		raiz.getChildren().addAll(hbOpciones, panel);
+
+		Scene escena = new Scene(raiz, 430, 200);
+		escenarioPrincipal.setTitle("Elige un color");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

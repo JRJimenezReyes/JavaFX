@@ -12,32 +12,28 @@ public class Hiperenlaces extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox();
-			raiz.setPadding(new Insets(40));
-			raiz.setSpacing(10);
-			
-			Label lbElige = new Label("Puedes visitar los siguientes enlaces:");
-			
-			Hyperlink hlEducacion = new Hyperlink("Educación Andalucía");
-			Hyperlink hlFPA = new Hyperlink("FPA");
-			Hyperlink hlAlAndalus = new Hyperlink("IES Al-Ándalus");
-			
-			hlAlAndalus.setVisited(true);
-			
-			VBox.setMargin(hlEducacion, new Insets(0, 0, 0, 30));
-			VBox.setMargin(hlFPA, new Insets(0, 0, 0, 30));
-			VBox.setMargin(hlAlAndalus, new Insets(0, 0, 0, 30));
-			
-			raiz.getChildren().addAll(lbElige, hlEducacion, hlFPA, hlAlAndalus);
-			
-			Scene escena = new Scene(raiz, 350, 200);
-			escenarioPrincipal.setTitle("Hiperenlaces");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox();
+		raiz.setPadding(new Insets(40));
+		raiz.setSpacing(10);
+
+		Label lbElige = new Label("Puedes visitar los siguientes enlaces:");
+
+		Hyperlink hlEducacion = new Hyperlink("Educación Andalucía");
+		Hyperlink hlFPA = new Hyperlink("FPA");
+		Hyperlink hlAlAndalus = new Hyperlink("IES Al-Ándalus");
+
+		hlAlAndalus.setVisited(true);
+
+		VBox.setMargin(hlEducacion, new Insets(0, 0, 0, 30));
+		VBox.setMargin(hlFPA, new Insets(0, 0, 0, 30));
+		VBox.setMargin(hlAlAndalus, new Insets(0, 0, 0, 30));
+
+		raiz.getChildren().addAll(lbElige, hlEducacion, hlFPA, hlAlAndalus);
+
+		Scene escena = new Scene(raiz, 350, 200);
+		escenarioPrincipal.setTitle("Hiperenlaces");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

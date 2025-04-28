@@ -22,22 +22,18 @@ public class ManejadorClase extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			HBox raiz = new HBox();
-			raiz.setAlignment(Pos.CENTER);
-			
-			Button btEjemplo = new Button("Púlsame!!!!");
-			btEjemplo.setOnAction(new MiManejador());
-			
-			raiz.getChildren().add(btEjemplo);
-			
-			Scene escena = new Scene(raiz, 350, 100);
-			escenarioPrincipal.setTitle("Manejador Clase");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		HBox raiz = new HBox();
+		raiz.setAlignment(Pos.CENTER);
+
+		Button btEjemplo = new Button("Púlsame!!!!");
+		btEjemplo.setOnAction(new MiManejador());
+
+		raiz.getChildren().add(btEjemplo);
+
+		Scene escena = new Scene(raiz, 350, 100);
+		escenarioPrincipal.setTitle("Manejador Clase");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

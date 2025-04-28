@@ -3,7 +3,7 @@ package javafx.personalizacion;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.recursos.LocalizadorRecursos;
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,7 +29,7 @@ public class EstilosHojaExterna extends Application {
 		raiz.setBottom(hbBotones);
 
 		Scene escena = new Scene(raiz, 500, 500);
-		escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/aplicacion.css").toExternalForm());
+		escena.getStylesheets().add(getClass().getResource("/estilos/aplicacion.css").toExternalForm());
 		escenarioPrincipal.setTitle("Hoja Estilos Externa");
 		escenarioPrincipal.setScene(escena);
 		escenarioPrincipal.show();

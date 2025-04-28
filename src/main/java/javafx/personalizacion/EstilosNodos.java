@@ -13,31 +13,27 @@ import javafx.scene.layout.HBox;
 public class EstilosNodos extends Application {
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			BorderPane raiz = new BorderPane();
-			raiz.setStyle("-fx-base: #ffe4c4;"
-					+ "-fx-background-image: url('/javafx/recursos/imagenes/logo-ies3.png');"
-					+ "-fx-background-position: center;"
-					+ "-fx-background-repeat: no-repeat;");
-			
-			HBox hbBotones = new HBox(10);
-			hbBotones.setPadding(new Insets(10));
-			hbBotones.setAlignment(Pos.CENTER_RIGHT);
-			Button btAceptar = new Button("Aceptar");
-			btAceptar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-			Button btCancelar = new Button("Cancelar");
-			btCancelar.setStyle("-fx-font: 20 arial; -fx-base: #dc143c;");
-			hbBotones.getChildren().addAll(btAceptar, btCancelar);
-			
-			raiz.setBottom(hbBotones);			
-			
-			Scene escena = new Scene(raiz, 500, 500);
-			escenarioPrincipal.setTitle("Estilos de nodos");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		BorderPane raiz = new BorderPane();
+		raiz.setStyle("-fx-base: #ffe4c4;"
+				+ "-fx-background-image: url('/imagenes/logo-ies3.png');"
+				+ "-fx-background-position: center;"
+				+ "-fx-background-repeat: no-repeat;");
+
+		HBox hbBotones = new HBox(10);
+		hbBotones.setPadding(new Insets(10));
+		hbBotones.setAlignment(Pos.CENTER_RIGHT);
+		Button btAceptar = new Button("Aceptar");
+		btAceptar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		Button btCancelar = new Button("Cancelar");
+		btCancelar.setStyle("-fx-font: 20 arial; -fx-base: #dc143c;");
+		hbBotones.getChildren().addAll(btAceptar, btCancelar);
+
+		raiz.setBottom(hbBotones);
+
+		Scene escena = new Scene(raiz, 500, 500);
+		escenarioPrincipal.setTitle("Estilos de nodos");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 	
 	public static void main(String[] args) {

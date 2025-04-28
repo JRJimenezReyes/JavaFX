@@ -25,27 +25,23 @@ public class PulsacionesBoton extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			VBox raiz = new VBox(30);
-			raiz.setPadding(new Insets(10));
-			raiz.setAlignment(Pos.CENTER);
-			
-			Button boton = new Button("Púlsame!!!");
-			boton.setFont(Font.font("Arial", 16));
-			boton.setOnAction(e -> botonPulsado());
-			
-			etiqueta = new Label("El botón aún no se ha pulsado");
-			etiqueta.setFont(Font.font("Arial", 24));
-			
-			raiz.getChildren().addAll(boton, etiqueta);
-			
-			Scene escena = new Scene(raiz, 450, 150);
-			escenarioPrincipal.setTitle("Pulsaciones del botón");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		VBox raiz = new VBox(30);
+		raiz.setPadding(new Insets(10));
+		raiz.setAlignment(Pos.CENTER);
+
+		Button boton = new Button("Púlsame!!!");
+		boton.setFont(Font.font("Arial", 16));
+		boton.setOnAction(e -> botonPulsado());
+
+		etiqueta = new Label("El botón aún no se ha pulsado");
+		etiqueta.setFont(Font.font("Arial", 24));
+
+		raiz.getChildren().addAll(boton, etiqueta);
+
+		Scene escena = new Scene(raiz, 450, 150);
+		escenarioPrincipal.setTitle("Pulsaciones del botón");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {

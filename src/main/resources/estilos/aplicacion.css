@@ -1,6 +1,6 @@
 .raiz {
 	-fx-base: #ffe4c4;
-	-fx-background-image: url('/javafx/recursos/imagenes/logo-ies3.png');
+	-fx-background-image: url('/imagenes/logo-ies3.png');
 	-fx-background-position: center;
 	-fx-background-repeat: no-repeat;
 }

@@ -9,16 +9,12 @@ public class Plantilla extends Application {
 
 	@Override
 	public void start(Stage escenarioPrincipal) {
-		try {
-			Pane raiz = new Pane();
-			
-			Scene escena = new Scene(raiz, 400, 400);
-			escenarioPrincipal.setTitle("Plantilla");
-			escenarioPrincipal.setScene(escena);
-			escenarioPrincipal.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		Pane raiz = new Pane();
+
+		Scene escena = new Scene(raiz, 400, 400);
+		escenarioPrincipal.setTitle("Plantilla");
+		escenarioPrincipal.setScene(escena);
+		escenarioPrincipal.show();
 	}
 
 	public static void main(String[] args) {
